@@ -1,7 +1,3 @@
-//
-// Get
-//
-
 @function get($map, $keys...) {
     @if length($keys) == 1 {
         $keys: nth($keys, 1);

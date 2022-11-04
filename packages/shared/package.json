@@ -39,6 +39,7 @@
       },
       "dependencies": {
             "@types/styled-components": "^5.1.26",
+            "node-waves": "^0.7.6",
             "postcss-scss": "^4.0.5",
             "styled-components": "^5.3.6"
       }

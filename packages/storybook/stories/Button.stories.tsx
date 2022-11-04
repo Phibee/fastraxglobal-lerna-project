@@ -1,12 +1,11 @@
 import React from 'react';
-import { Button, ButtonProps, TButtonSize, ButtonSizes } from '@fastraxglobal/shared';
-import { Meta, Story } from '@storybook/react';
-import '@fastraxglobal/shared/lib/assets/global.css';
+import { Button, ButtonProps, ButtonSizes, ButtonVariants } from '@fastraxglobal/shared';
 import {getArrayToStringValues} from "../util";
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-const meta: Meta = {
-  title: 'Components/Button',
-  component: Button,
+const meta = {
+    title: 'Components/Button',
+    component: Button,
     argTypes: {
         children: {
             type: {name: "symbol", required: true},
@@ -14,7 +13,43 @@ const meta: Meta = {
                 type: {summary: 'ReactNode'}
             },
         },
-        elevation: {
+        disabled: {
+            defaultValue: false,
+            type: {name: "boolean", required: false},
+            description: 'Disables the button',
+            table: {
+                type: {summary: 'boolean'},
+                defaultValue: {summary: 'false'}
+            },
+            control: {
+                type: "boolean"
+            }
+        },
+        outline: {
+            defaultValue: false,
+            type: {name: "boolean", required: false},
+            description: 'background-color will be border-color and vice-versa.',
+            table: {
+                type: {summary: 'boolean'},
+                defaultValue: {summary: 'false'}
+            },
+            control: {
+                type: "boolean"
+            }
+        },
+        ripple: {
+            defaultValue: false,
+            type: {name: "boolean", required: false},
+            description: 'ripple effect',
+            table: {
+                type: {summary: 'boolean'},
+                defaultValue: {summary: 'false'}
+            },
+            control: {
+                type: "boolean"
+            }
+        },
+        shadow: {
             defaultValue: false,
             type: {name: "boolean", required: false},
             description: 'shadow',
@@ -22,39 +57,36 @@ const meta: Meta = {
                 type: {summary: 'boolean'},
                 defaultValue: {summary: 'false'}
             }
-        },
+        }
     },
-  parameters: {
-    controls: { expanded: true },
-  },
-};
+    parameters: {
+        controls: { expanded: true, sort: 'requiredFirst' },
+    },
+} as ComponentMeta<typeof Button>;
 
-export default meta;
-
-const Template: Story<ButtonProps> = args => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Basic = Template.bind({});
 
 Basic.args = {
-  children: 'Button',
-  className: 'btn-primary'
+  children: 'Button'
 };
 
 Basic.argTypes = {
     size: {
-        type: {name: "boolean", required: false},
+        type: {name: "symbol", required: false},
         description: 'demo description',
         table: {
-            type: {summary: getArrayToStringValues(Object.values(ButtonSizes))}
+            type: {summary: getArrayToStringValues(ButtonSizes)}
         },
         control: {
             type: 'select',
-            options: Object.values(ButtonSizes),
+            options: ButtonSizes,
         },
     },
     rounded: {
         defaultValue: true,
-        type: {name: "boolean", required: false, value: true},
+        type: {name: "boolean", required: false},
         description: 'rounded corners of button',
         table: {
             type: {summary: 'boolean'},
@@ -63,6 +95,17 @@ Basic.argTypes = {
         control: {
             type: "boolean"
         }
+    },
+    variant: {
+        type: {name: "symbol", required: false},
+        description: 'demo description',
+        table: {
+            type: {summary: getArrayToStringValues(ButtonVariants)}
+        },
+        control: {
+            type: 'select',
+            options: ButtonVariants,
+        },
     },
 }
 
@@ -99,3 +142,4 @@ Sizes.decorators = [
   },
 ];
 
+export default meta;

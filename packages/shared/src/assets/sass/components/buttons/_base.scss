@@ -1,4 +1,6 @@
 .btn{
+    --button-rounded-radius: #{$btn-border-radius};
+    
     padding: 0.5rem 1rem;
     display: inline-block;
     outline: none;
@@ -10,4 +12,16 @@
     margin: .2rem .5rem;
 
     @include transition(all .5s cubic-bezier(0.165, 0.84, 0.44, 1));
+
+    &:disabled {
+        cursor: default;
+        pointer-events: none;
+        color: #cecece;
+        opacity: 0.5;
+    }
+
+    &:active {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+    }
 }
