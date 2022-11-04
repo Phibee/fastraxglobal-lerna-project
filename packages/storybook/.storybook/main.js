@@ -8,18 +8,23 @@ module.exports = {
       lazyCompilation: true,
     },
   },
-  stories: ['../stories/**/*.stories.@(ts|tsx|js|jsx)'],
+  stories: [
+    '../src/**/*.stories.@(ts|tsx|js|jsx|mdx)',
+    '../stories/**/*.stories.@(ts|tsx|js|jsx|mdx)',
+  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
+    '@storybook/addon-docs',
   ],
   // https://storybook.js.org/docs/react/configure/typescript#mainjs-configuration
   typescript: {
     check: true, // type-check stories during Storybook build
   },
-  features: { buildStoriesJson: true },
+  framework: '@storybook/react', // OR whatever framework you're using
+  features: { buildStoriesJson: true, storyStoreV7: true },
   webpackFinal: async (config, { configType }) => {
     // configure for absolute imports
     config.resolve.plugins = [

@@ -5,7 +5,7 @@ import {
   ButtonSizes,
   ButtonVariants,
 } from '@fastraxglobal/shared';
-import { getArrayToStringValues } from '../util';
+import { getArrayToStringValues } from '../../util';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 const meta = {
