@@ -104,5 +104,6 @@ dist
 .tern-port
 
 .idea
-**shared/lib/
-packges/shared/src/assets/
+**/shared/lib/
+**/shared/src/assets/global.css
+**/shared/src/assets/sass/global-tailwind.css
