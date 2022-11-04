@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html,
+#app {
+      line-height: 1.5;
+      -webkit-text-size-adjust: 100%;
+      -moz-tab-size: 4;
+      -o-tab-size: 4;
+      tab-size: 4;
+}
+
+body,
+html,
+#root,
+#app {
+      height: 100vh;
+}
+
+aside {
+      background-color: #1b1d1e;
+}
+
+aside > ul > li > a {
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      background-color: transparent;
+}
+
+aside ul li a:hover {
+      background-color: #ffffff03;
+}
+
+aside > ul > li > a:after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 100%;
+      left: 0px;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(0);
+}
+
+aside > ul > li > a:hover:after {
+      transform: scale(1);
+}
+
+aside > ul ul {
+      padding-left: 25px;
+}

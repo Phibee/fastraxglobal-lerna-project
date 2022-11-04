@@ -1,0 +1,56 @@
+.btn-rounded {
+	border-radius: var(--button-rounded-radius);
+}
+
+.btn-square {
+	border-radius: 3px;
+}
+
+@each $name, $color in $theme-colors {
+	.btn-#{$name} {
+		--btn-color: #{$color};
+		--text-color: white;
+	}
+	
+	.btn-#{$name}:not(.inverted) {
+		background: var(--btn-color);
+		color: var(--text-color) !important;
+	}
+	
+	.btn-#{$name}.inverted {
+		background: var(--text-color);
+		color: var(--btn-color) !important;
+		border: thin solid var(--btn-color) !important;
+	}
+}
+
+
+@each $keyShadowName, $shadowValue in $shadows {
+	.btn.shadow-#{$keyShadowName}  {
+		--l: 20%;
+		--btn-shadow-color: lighten(var(--btn-color), 20%);
+		@include box-shadow("0 8px 15px -6px", var(--btn-shadow-color));
+		
+
+		&:focus, &:hover, &:active {
+			--l: 5%;
+			--btn-shadow-color: lighten(var(--btn-color), 5%);
+			
+			@include box-shadow("0 8px 21px -5px", var(--btn-shadow-color));
+		}
+	}
+}
+
+@each $name, $color in $theme-colors {
+	.bg-#{$name}
+	{
+		background-color: #{$color};
+	}
+}
+
+@each $keySizeName, $sizeValue in $btn-padding {
+    .btn.btn-#{$keySizeName}{
+        padding: $sizeValue;
+        font-size: get($btn-font-size, $keySizeName)
+    }
+}

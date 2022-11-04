@@ -1,0 +1,45 @@
+{
+      "name": "@fastraxglobal/shared",
+      "version": "1.0.0-alpha",
+      "description": "Button",
+      "main": "lib/index.js",
+      "types": "./lib/index.d.ts",
+      "scripts": {
+            "build": "tsc && yarn build-sass && yarn tailwind:build && npm run copyAssetFiles",
+            "build-sass": "node-sass --output-style expanded ./src/assets/sass/global.scss ./src/assets/sass/global-tailwind.css",
+            "tailwind:build": "tailwindcss -i ./src/assets/sass/global-tailwind.css -o ./src/assets/global.css",
+            "copyAssetFiles": "copyfiles --error --up 1 src/assets/*.css src/assets/*.svg src/icons/duotune/**/*.svg lib",
+            "clean": "rm -rf coverage lib",
+            "lint": "eslint .",
+            "lint:fix": "yarn lint --fix",
+            "test": "jest",
+            "test:watch": "jest --watch"
+      },
+      "peerDependencies": {
+            "postcss": "^8.4.18",
+            "react": "17 || 18",
+            "react-dom": "^18.2.0",
+            "tailwindcss": "^3.0.23"
+      },
+      "files": [
+            "lib"
+      ],
+      "publishConfig": {
+            "access": "public"
+      },
+      "license": "MIT",
+      "devDependencies": {
+            "autoprefixer": "^10.4.13",
+            "classnames": "^2.3.2",
+            "copyfiles": "^2.4.1",
+            "node-sass": "^7.0.3",
+            "postcss": "^8.4.18",
+            "postcss-cli": "^10.0.0",
+            "postcss-import": "^15.0.0"
+      },
+      "dependencies": {
+            "@types/styled-components": "^5.1.26",
+            "postcss-scss": "^4.0.5",
+            "styled-components": "^5.3.6"
+      }
+}
