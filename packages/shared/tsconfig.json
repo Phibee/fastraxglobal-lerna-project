@@ -1,9 +1,9 @@
 {
-      "extends": "../../tsconfig",
-      "compilerOptions": {
-            "outDir": "lib",
-            "noEmit": false
-      },
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "outDir": "lib",
+    "noEmit": false
+  },
 
-      "include": ["src"]
+  "include": ["src", "custom.d.ts"]
 }

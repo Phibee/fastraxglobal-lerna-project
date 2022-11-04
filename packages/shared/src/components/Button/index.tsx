@@ -1,11 +1,14 @@
-import type React from "react";
+import React from "react";
 import styled from "styled-components";
 import clx from "classnames"
 import Waves, {ElementSelector} from 'node-waves';
 import {useEffect, useRef} from "react";
+import { Coding} from "../../icons/duotune"
 
 const StyledButton = styled.button`
 `;
+
+const {Cod005} = Coding;
 
 export const ButtonSizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
 export type TButtonSize = typeof ButtonSizes[number];
@@ -16,10 +19,11 @@ export type TButtonVariants = typeof ButtonVariants[number];
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     disabled?: boolean;
+    loading?: boolean;
     outline?: boolean;
     rounded?: boolean;
     ripple?: boolean;
-    size?: TButtonSize
+    size?: TButtonSize;
     shadow?: boolean;
     variant?: TButtonVariants;
 }
@@ -31,6 +35,7 @@ export const Button: React.FC<ButtonProps> = (
 {
     children,
     className,
+    loading = false,
     size,
     rounded = true,
     shadow = false,
@@ -68,10 +73,13 @@ export const Button: React.FC<ButtonProps> = (
                 shadow ? `shadow${size ? '-' + size : ''}` : '', 
                 className, {
                 'rounded': rounded, 
-                'inverted': outline,
+                'inverted': outline, 
+                'is-loading': loading,
             })}
         >
             {children}
+
+            {loading && <span className="svg-icon loading"><Cod005 /></span> }
         </StyledButton>
     );
 }
