@@ -1,32 +1,36 @@
 {
-      "name": "root",
-      "private": true,
-      "devDependencies": {
-            "lerna": "^4.0.0",
-            "nx": "^15.0.4"
-      },
-      "workspaces": [
-            "packages/*"
-      ],
-      "scripts": {
-            "build": "lerna run build",
-            "build:nx": "nx run-many --target=build",
-            "learn:add": "lerna add @fastraxglobal/shared --scope=@fastraxglobal/admin"
-      },
-      "useNx": true,
-      "dependencies": {
-            "@types/node": "^18.11.7",
-            "@types/react": "^18.0.24",
-            "@types/react-dom": "^18.0.8",
-            "@types/styled-components": "^5.1.26",
-            "react": "^18.2.0",
-            "styled-components": "^5.3.6",
-            "typescript": "^4.8.4",
-            "tailwindcss": "^3.0.23",
-            "twin.macro": "^2.8.2",
-            "@emotion/babel-plugin": "^11.10.2",
-            "@emotion/core": "^11.0.0",
-            "@emotion/react": "^11.10.4",
-            "@emotion/styled": "^11.10.4"
-      }
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "nx": "^15.0.4"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build",
+    "build:nx": "nx run-many --target=build",
+    "learn:add": "lerna add @fastraxglobal/shared --scope=@fastraxglobal/admin"
+  },
+  "useNx": true,
+  "dependencies": {
+    "@types/node": "^18.11.7",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@types/styled-components": "^5.1.26",
+    "react": "^18.2.0",
+    "styled-components": "^5.3.6",
+    "typescript": "^4.8.4",
+    "tailwindcss": "^3.0.23",
+    "twin.macro": "^2.8.2",
+    "@emotion/babel-plugin": "^11.10.2",
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4"
+  },
+  "browser": {
+    "./node_modules/@storybook/client-api": "./node_modules/@storybook/client-api/dist/esm/index.js",
+    "./node_modules/@storybook/client-logger": "./node_modules/@storybook/client-logger/dist/esm/index.js"
+  }
 }
